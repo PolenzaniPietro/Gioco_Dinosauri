@@ -8,6 +8,9 @@ package dinosauri;
  *
  * @author polenzani.pietro
  */
-public class Colori {
+public enum Colori {    
+        Rosso,
+        Verde,
+        Giallo;       
     
 }

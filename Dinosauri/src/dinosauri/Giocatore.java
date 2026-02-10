@@ -8,9 +8,12 @@ package dinosauri;
  *
  * @author polenzani.pietro
  */
-public class Gestore {
-    private Mazzo mazzo;
-    private Giocatore g1;
-    private Giocatore g2;
+public class Giocatore {
+    private Mazzo mazzoPersonale;
+    private Mazzo mazzoPunti;
+    private int punteggio;
     
+    public void contaPunti(){
+         punteggio=mazzoPunti.calcolaPunti();         
+    }
 }

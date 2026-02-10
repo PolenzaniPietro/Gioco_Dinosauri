@@ -4,10 +4,30 @@
  */
 package dinosauri;
 
+import java.io.*;
+import java.util.*;
+
 /**
  *
  * @author polenzani.pietro
  */
 public class FileManager {
     
+    private String file="mazzo.txt";
+    public Mazzo leggiFile(){
+        ArrayList <String> carte = new ArrayList();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            reader.readLine(); 
+            while ((line = reader.readLine()) != null) {  
+                carte.add(line);
+                
+            }           
+        }
+        catch(IOException e){           
+        }
+        Mazzo m = new Mazzo(carte);
+        return m;
+
+    }
 }
