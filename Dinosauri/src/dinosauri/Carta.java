@@ -36,6 +36,5 @@ public class Carta {
     public void setValoreCarta(int valoreCarta) {
         this.valoreCarta = valoreCarta;
     }
-    
-    
+       
 }

@@ -13,7 +13,15 @@ public class Giocatore {
     private Mazzo mazzoPunti;
     private int punteggio;
     
-    public void contaPunti(){
-         punteggio=mazzoPunti.calcolaPunti();         
+    public void removeCarta(){
+        mazzoPersonale.removeCarta();
     }
+    public int contaPunti(){
+         punteggio=mazzoPunti.calcolaPunti();   
+         return punteggio;
+    }
+    public void pescaPrimaCarta(){
+        this.mazzoPersonale.pescaPrimaCarta();
+    }
+    
 }

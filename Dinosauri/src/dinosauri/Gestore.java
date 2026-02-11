@@ -9,8 +9,15 @@ package dinosauri;
  * @author polenzani.pietro
  */
 public class Gestore {
-    private Mazzo mazzo;
+    private Mazzo mazzoCentrale;
     private Giocatore g1;
     private Giocatore g2;
     
+    public void calcolaPunteggioGiocatore(Giocatore g){       
+        g.contaPunti();
+    }
+    
+    public void pescaPrimaCarta(Giocatore g){
+        g.pescaPrimaCarta();
+    }
 }

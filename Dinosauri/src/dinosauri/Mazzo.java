@@ -27,4 +27,23 @@ public class Mazzo {
         }
         return punti;
     }
+    public Carta pescaPrimaCarta(){
+        Carta c= null;
+        if(!mazzo.isEmpty()){
+            c = mazzo.get(0);
+            mazzo.remove(0);
+        }
+        return c;
+    }
+
+    public Carta removeCarta(){
+        Carta c= null;
+        if(!mazzo.isEmpty()){
+            c = mazzo.get(0);
+            mazzo.remove(0);
+        }
+        return c;
+    }
+    
+    
 }
