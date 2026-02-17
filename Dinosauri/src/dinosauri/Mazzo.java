@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author polenzani.pietro
  */
 public class Mazzo {
-    private ArrayList<Carta> mazzo;
+    protected ArrayList<Carta> mazzo;
     
     public Mazzo(ArrayList<String> e){
         for(String a : e){
@@ -28,22 +28,13 @@ public class Mazzo {
         return punti;
     }
     public Carta pescaPrimaCarta(){
-        Carta c= null;
-        if(!mazzo.isEmpty()){
-            c = mazzo.get(0);
-            mazzo.remove(0);
-        }
-        return c;
+        return this.removeCarta();
     }
 
-    public Carta removeCarta(){
-        Carta c= null;
-        if(!mazzo.isEmpty()){
-            c = mazzo.get(0);
-            mazzo.remove(0);
+    public Carta removeCarta(){     
+        if(!mazzo.isEmpty()){            
+            return mazzo.remove(0);
         }
-        return c;
+        return null;
     }
-    
-    
 }

@@ -4,6 +4,8 @@
  */
 package dinosauri;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author polenzani.pietro
@@ -12,6 +14,11 @@ public class Giocatore {
     private Mazzo mazzoPersonale;
     private Mazzo mazzoPunti;
     private int punteggio;
+
+    public Giocatore(Mazzo mazzoPersonale) {
+        this.mazzoPersonale = mazzoPersonale;
+    }
+    
     
     public void removeCarta(){
         mazzoPersonale.removeCarta();
@@ -23,5 +30,6 @@ public class Giocatore {
     public void pescaPrimaCarta(){
         this.mazzoPersonale.pescaPrimaCarta();
     }
+    
     
 }
