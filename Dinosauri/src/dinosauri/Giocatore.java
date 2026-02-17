@@ -20,8 +20,8 @@ public class Giocatore {
     }
     
     
-    public void removeCarta(){
-        mazzoPersonale.removeCarta();
+    public void removeCarta(Carta c){
+        mazzoPersonale.removeCarta(c);
     }
     public int contaPunti(){
          punteggio=mazzoPunti.calcolaPunti();   

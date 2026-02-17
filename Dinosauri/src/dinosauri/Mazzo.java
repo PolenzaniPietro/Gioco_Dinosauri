@@ -27,14 +27,15 @@ public class Mazzo {
         }
         return punti;
     }
-    public Carta pescaPrimaCarta(){
-        return this.removeCarta();
+    public void removeCarta(Carta c){     
+        if(!mazzo.isEmpty()){            
+             mazzo.remove(c);
+        }
+    }
+    public void pescaPrimaCarta(){
+         this.removeCarta(mazzo.get(0));
+         
     }
 
-    public Carta removeCarta(){     
-        if(!mazzo.isEmpty()){            
-            return mazzo.remove(0);
-        }
-        return null;
-    }
+    
 }
