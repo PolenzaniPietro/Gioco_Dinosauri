@@ -36,5 +36,9 @@ public class Carta {
     public void setValoreCarta(int valoreCarta) {
         this.valoreCarta = valoreCarta;
     }
+    @Override 
+    public String toString(){
+        return colore.toString();
+    }
        
 }
