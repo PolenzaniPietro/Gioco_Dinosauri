@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author polenzani.pietro
  */
 public class Giocatore {
-    private Mazzo mazzoPersonale;
+    protected Mazzo mazzoPersonale;
     private Mazzo mazzoPunti;
     private int punteggio;
 

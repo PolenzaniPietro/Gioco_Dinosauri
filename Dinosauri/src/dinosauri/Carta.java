@@ -40,5 +40,5 @@ public class Carta {
     public String toString(){
         return colore.toString();
     }
-       
+      
 }

@@ -43,4 +43,6 @@ public class Gestore {
         g1=new Giocatore(m1=new Mazzo(carteM1));
         g2=new Giocatore(m2=new Mazzo(carteM2));
     }
+    
+            
 }

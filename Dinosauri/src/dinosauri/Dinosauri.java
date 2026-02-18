@@ -14,11 +14,11 @@ public class Dinosauri {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Interfaccia form = new Interfaccia();
+        form.setVisible(true);
         
-         
-                 
-             
-         
+        
+        
     }
     
 }
