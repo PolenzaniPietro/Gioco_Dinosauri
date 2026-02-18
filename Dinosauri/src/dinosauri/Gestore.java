@@ -43,6 +43,6 @@ public class Gestore {
         g1=new Giocatore(m1=new Mazzo(carteM1));
         g2=new Giocatore(m2=new Mazzo(carteM2));
     }
-    
+    //DA fare creare metodo partita rapida che confronta direttamente i due punteggi senza giocare le 15 mani
             
 }
