@@ -27,8 +27,8 @@ public class Giocatore {
          punteggio=mazzoPunti.calcolaPunti();   
          return punteggio;
     }
-    public void pescaPrimaCarta(){
-        this.mazzoPersonale.pescaPrimaCarta();
+    public Carta pescaPrimaCarta(){
+        return this.mazzoPersonale.pescaPrimaCarta();
     }
     
     

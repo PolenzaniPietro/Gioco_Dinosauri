@@ -13,15 +13,16 @@ import java.util.ArrayList;
 public class Gestore {
 
     private Mazzo mazzoCentrale;
-    private Giocatore g1;
-    private Giocatore g2;
+    private Mazzo mazzoScarti;
+    protected Giocatore g1;
+    protected Giocatore g2;
     
-    public void calcolaPunteggioGiocatore(Giocatore g){       
-        g.contaPunti();
+    public int calcolaPunteggioGiocatore(Giocatore g){       
+       return g.contaPunti();
     }
     
-    public void pescaPrimaCarta(Giocatore g){
-        g.pescaPrimaCarta();
+    public Carta pescaPrimaCarta(Giocatore g){
+        return g.pescaPrimaCarta();
     }
     
     public void riceviMazzo(){
@@ -43,6 +44,33 @@ public class Gestore {
         g1=new Giocatore(m1=new Mazzo(carteM1));
         g2=new Giocatore(m2=new Mazzo(carteM2));
     }
-    //DA fare creare metodo partita rapida che confronta direttamente i due punteggi senza giocare le 15 mani
+    public Giocatore partitaRapida(Giocatore g1, Giocatore g2){
+        if (g1.contaPunti() > g2.contaPunti()){
+            return g1;
+        }
+        else if (g1.contaPunti() < g2.contaPunti()){
+            return g2;
+        }
+        return null;
+    }
+    public Mazzo addMazzo(Mazzo m){
+        Mazzo ma=null;
+        for(Carta c : m.mazzo){
+            ma.addCarta(c);
+        }
+        return ma;
+    }
+    public void partita(){
+        
+        if(g1.pescaPrimaCarta().getColore().equals(g2.pescaPrimaCarta().getColore())){
+            mazzoScarti.addCarta(g1.pescaPrimaCarta());
+            mazzoScarti.addCarta(g2.pescaPrimaCarta());
+        }
+        if(g1.pescaPrimaCarta().getColore().equals("Rosso") && g2.pescaPrimaCarta().getColore().equals("Giallo")){
+            g1.mazzoPersonale.addCarta(g1.pescaPrimaCarta());
+            g1.mazzoPersonale.addMazzo(mazzoScarti.removeAllCards());
+                    
+        }
+    }
             
 }

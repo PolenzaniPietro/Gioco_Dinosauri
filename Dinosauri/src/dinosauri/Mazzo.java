@@ -29,12 +29,24 @@ public class Mazzo {
     }
     public void removeCarta(Carta c){     
         if(!mazzo.isEmpty()){            
-             mazzo.remove(c);
+              mazzo.remove(c);
         }
     }
-    public void pescaPrimaCarta(){
-         this.removeCarta(mazzo.get(0));
+    public void removeAllCards(){
+        for(Carta c : mazzo){
+            mazzo.remove(c);
+        }
+    }
+        
+    public Carta removePrimaCarta(){
+        return mazzo.remove(0);
+    }
+    public Carta pescaPrimaCarta(){
+        return this.removePrimaCarta();
          
+    }
+    public void addCarta(Carta c){
+        this.mazzo.add(c);
     }
 
     
