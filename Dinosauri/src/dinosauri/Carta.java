@@ -11,34 +11,33 @@ package dinosauri;
 public class Carta {
     private Colori colore;
     private int valoreCarta;
-    
+
     public Carta(String c){
-        colore=Colori.valueOf(c);
-        if(colore.equals("Rosso")){
-            this.setValoreCarta(5);
-        }
-        else if(colore.equals("Verde")){
-            this.setValoreCarta(3);
-        }
-        else if(colore.equals("Giallo")){
-            this.setValoreCarta(1);
-        }
+        colore = Colori.valueOf(c);
+        setValore();
     }
 
-    public Colori getColore() {
-        return colore;
+    public Carta(Colori c) {
+        this.colore = c;
+        setValore();
     }
 
-    public int getValoreCarta() {
-        return valoreCarta;
+    private void setValore() {
+        if (colore == Colori.Rosso) valoreCarta = 5;
+        else if (colore == Colori.Verde) valoreCarta = 3;
+        else if (colore == Colori.Giallo) valoreCarta = 1;
     }
 
-    public void setValoreCarta(int valoreCarta) {
-        this.valoreCarta = valoreCarta;
+    public Colori getColore() { return colore; }
+    public void setColore(Colori c) { 
+        this.colore = c; 
+        setValore();
     }
-    @Override 
-    public String toString(){
-        return colore.toString();
+
+    public int getValoreCarta() { return valoreCarta; }
+
+    @Override
+    public String toString(){ 
+        return colore.toString(); 
     }
-      
 }

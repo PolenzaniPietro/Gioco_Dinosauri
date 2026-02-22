@@ -11,8 +11,10 @@ import java.util.ArrayList;
  * @author polenzani.pietro
  */
 public class Interfaccia extends javax.swing.JFrame {
-    Gestore gestore = new Gestore();
+    Gestore gestore;
     
+    
+
 
     /**
      * Creates new form Interfaccia
@@ -20,6 +22,9 @@ public class Interfaccia extends javax.swing.JFrame {
     public Interfaccia() {
         initComponents();
         
+        gestore = new Gestore();
+        gestore.riceviMazzo();
+
     }
 
     /**
@@ -34,7 +39,6 @@ public class Interfaccia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_calcolaPunti = new javax.swing.JButton();
         btn_giocaCarta = new javax.swing.JButton();
-        btn_avviaPartita = new javax.swing.JButton();
         btn_partitaRapida = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -45,6 +49,7 @@ public class Interfaccia extends javax.swing.JFrame {
         lbl_punteggioG2 = new javax.swing.JLabel();
         lbl_punteggioG1 = new javax.swing.JLabel();
         lbl_vincitore = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,20 +63,17 @@ public class Interfaccia extends javax.swing.JFrame {
                 btn_calcolaPuntiActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_calcolaPunti, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 120, 50));
+        jPanel1.add(btn_calcolaPunti, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, 50));
         btn_calcolaPunti.getAccessibleContext().setAccessibleName("btn_calcolaPunti");
 
         btn_giocaCarta.setText("gioca carta");
-        jPanel1.add(btn_giocaCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 120, 50));
-        btn_giocaCarta.getAccessibleContext().setAccessibleName("btn_giocaCarta");
-
-        btn_avviaPartita.setText("avvia partita");
-        btn_avviaPartita.addActionListener(new java.awt.event.ActionListener() {
+        btn_giocaCarta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_avviaPartitaActionPerformed(evt);
+                btn_giocaCartaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_avviaPartita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
+        jPanel1.add(btn_giocaCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
+        btn_giocaCarta.getAccessibleContext().setAccessibleName("btn_giocaCarta");
 
         btn_partitaRapida.setText("partita rapida");
         btn_partitaRapida.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +81,7 @@ public class Interfaccia extends javax.swing.JFrame {
                 btn_partitaRapidaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_partitaRapida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 120, 50));
+        jPanel1.add(btn_partitaRapida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 120, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 270));
 
@@ -106,28 +108,42 @@ public class Interfaccia extends javax.swing.JFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 70, 20));
 
         lbl_punteggioG2.setText("0");
-        jPanel2.add(lbl_punteggioG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 10, 20));
+        jPanel2.add(lbl_punteggioG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 50, 20));
 
         lbl_punteggioG1.setText("0");
-        jPanel2.add(lbl_punteggioG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 10, 20));
-        jPanel2.add(lbl_vincitore, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 460, 140));
+        jPanel2.add(lbl_punteggioG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 60, 20));
+        jPanel2.add(lbl_vincitore, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 170, 60));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 660, 70));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 800, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_avviaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_avviaPartitaActionPerformed
-    }//GEN-LAST:event_btn_avviaPartitaActionPerformed
-
     private void btn_calcolaPuntiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcolaPuntiActionPerformed
-        lbl_punteggioG1.setText(String.valueOf(gestore.calcolaPunteggioGiocatore(gestore.g1)));
-        lbl_punteggioG2.setText(String.valueOf(gestore.calcolaPunteggioGiocatore(gestore.g2)));
+            lbl_punteggioG1.setText(String.valueOf(gestore.calcolaPunteggioGiocatore(gestore.g1)));
+            lbl_punteggioG2.setText(String.valueOf(gestore.calcolaPunteggioGiocatore(gestore.g2)));
     }//GEN-LAST:event_btn_calcolaPuntiActionPerformed
 
     private void btn_partitaRapidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_partitaRapidaActionPerformed
-        lbl_vincitore.setText("il vincitore è "+ gestore.partitaRapida(gestore.g1, gestore.g2));
+            Giocatore vincitore = gestore.partitaRapida();
+            if (vincitore == null) {
+                lbl_vincitore.setText("Pareggio!");
+            } else if (vincitore == gestore.g1) {
+                lbl_vincitore.setText("Il vincitore è Giocatore 1");
+            } else {
+                lbl_vincitore.setText("Il vincitore è Giocatore 2");
+            }
     }//GEN-LAST:event_btn_partitaRapidaActionPerformed
+
+    private void btn_giocaCartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_giocaCartaActionPerformed
+            String msg = " ";
+            Carta cartaG1 = gestore.pescaPrimaCarta(gestore.g1);
+            Carta cartaG2 = gestore.pescaPrimaCarta(gestore.g2);
+
+            msg = "Giocatore 1 ha pescato: " + cartaG1 + "                    Giocatore 2 ha pescato: " + cartaG2;
+            jLabel6.setText(msg);
+    }//GEN-LAST:event_btn_giocaCartaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +181,6 @@ public class Interfaccia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_avviaPartita;
     private javax.swing.JButton btn_calcolaPunti;
     private javax.swing.JButton btn_giocaCarta;
     private javax.swing.JButton btn_partitaRapida;
@@ -174,6 +189,7 @@ public class Interfaccia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_punteggioG1;
